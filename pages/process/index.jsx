@@ -1,18 +1,18 @@
 import RecruiterInfo from "../../components/RecruiterInfo/RecruiterInfo";
 import StepInfo from "../../components/StepInfo/StepInfo";
 import Layout from "../../components/Layout/Layout";
-import { stepsInfo, currentStep } from "../../store/stepsSlice";
+import { stepsInfo, stepToShow } from "../../store/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getStepsTunk } from "../../store/stepsThunks";
+import { getUserTunk } from "../../store/userThunks";
 
 const ProcessPage = () => {
     const dispatch = useDispatch();
     const steps = useSelector(stepsInfo);
-    const current = useSelector(currentStep);
+    const current = useSelector(stepToShow);
     const { name, description, links } = steps[current] || {};
     useEffect(() => {
-        dispatch(getStepsTunk());
+        dispatch(getUserTunk());
     }, []);
 
     return (

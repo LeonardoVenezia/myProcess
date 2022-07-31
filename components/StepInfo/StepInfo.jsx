@@ -1,5 +1,4 @@
 const StepInfo = ({ name, description, link }) => {
-    console.log({ name, description, link })
     return (
         <section>
             <h2>{name}</h2>
